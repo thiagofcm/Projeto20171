@@ -17,6 +17,15 @@ public class GosmaMove : MonoBehaviour
         StartCoroutine(Move(max));
     }
 
+    void Update()
+    {
+        Vector3 velocidadevetorialh = Vector3.left * velocidadev;
+
+        transform.position = transform.position + velocidadevetorialh * Time.deltaTime;
+
+
+    }
+
     IEnumerator Move(float destino)
     {
         while (Mathf.Abs(destino - transform.localPosition.y) > 0.2f)
@@ -33,13 +42,6 @@ public class GosmaMove : MonoBehaviour
         StartCoroutine(Move(destino));
     }
 
-    void Update()
-    {
-        Vector3 velocidadevetorialh = Vector3.left * velocidadev;
-
-        transform.position = transform.position + velocidadevetorialh* Time.deltaTime;
-
-       
-    }
+   
 
 }

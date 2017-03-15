@@ -26,12 +26,12 @@ public class GameController : MonoBehaviour {
      
 	void Start () {
         estado = Estado.AguardoComecar;
-	    StartCoroutine(GerarObstaculos());	
+	   
 	}
 
     IEnumerator GerarObstaculos()
     {
-        while (true)
+        while (GameController.instancia.estado == Estado.Jogando) 
         {
             Vector3 pos = new Vector3(3f, Random.Range(-1f, 3f), 0f);
             GameObject obj = Instantiate(obstaculo, pos, Quaternion.identity) as GameObject;
@@ -42,7 +42,8 @@ public class GameController : MonoBehaviour {
 
     public void PlayerComecou()
     {
-        estado = Estado.Jogando; 
+        estado = Estado.Jogando;
+        StartCoroutine(GerarObstaculos());
     }
 
     public void PlayerMorreu()
