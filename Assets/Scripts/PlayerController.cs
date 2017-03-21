@@ -20,16 +20,18 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        if (GameController.instancia.estado == Estado.Jogando || GameController.instancia.estado == Estado.AguardoComecar)                              ;
-        if (Input.GetMouseButtonDown(0))
+        if (GameController.instancia.estado == Estado.Jogando || GameController.instancia.estado == Estado.AguardoComecar)
         {
-            anim.Play("pulando");
-            audiosource.PlayOneShot(somPulo);
-            rb.useGravity = true;
-            pulando = true;
-            if (GameController.instancia.estado == Estado.AguardoComecar)
+            if (Input.GetMouseButtonDown(0))
             {
-                GameController.instancia.PlayerComecou();
+                anim.Play("pulando");
+                audiosource.PlayOneShot(somPulo);
+                rb.useGravity = true;
+                pulando = true;
+                if (GameController.instancia.estado == Estado.AguardoComecar)
+                {
+                    GameController.instancia.PlayerComecou();
+                }
             }
         }
 
